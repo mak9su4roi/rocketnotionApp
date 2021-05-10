@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# rocketnotionApp
+Web application for Rocketbook -- Notion integration
+### Contributors: 
+* [Maksym Bilyk](https://github.com/m-shiroi)
+* [Andrew Bek](https://github.com/ReyBroncas)
+* [Mark Valyavka](https://github.com/markvalyavka)
