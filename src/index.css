@@ -1,13 +1,384 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+:root {
+    --accent-color: #e0e0e0;
+    --zindex-1-color: #778a99;
+    --zindex-2-color: #e0e0e0;
+    --zindex-3-color: #f4cccc;
+    --zindex-4-color: #778a99bd;
+    --zindex-5-color: #778a9973;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* base styles */
+* {
+    margin: 0;
+    font-family: "Quicksand";
+    color: #333;
+}
+
+body {
+    background: var(--zindex-2-color);
+}
+
+html body {
+    height: 100%;
+}
+
+/* Navigation bar component */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.logo {
+    color: var(--zindex-1-color);
+    font-family: "Pacifico", cursive;
+    font-size: 38px;
+
+    margin-left: 50px;
+    padding: 10px 20px;
+
+    background: transparent;
+    border-radius: 0px 0px 18px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 15px 15px 30px #bcbcbc, -15px -15px 30px #ffffff;
+}
+
+.logo > a {
+    text-decoration: none;
+}
+
+/* Main activities container */
+.mainContainer {
+    margin-top: 50px;
+    display: flex;
+    /* align-items: stretch; */
+    height: 100%;
+}
+.header {
+    color: var(--zindex-5-color);
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+
+    margin-top: -60px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+    margin-right: auto;
+}
+/* Side menu component */
+.menu_button_container {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    padding-right: 2%;
+    padding-left: 2%;
+
+    border-right: 4px dashed var(--zindex-5-color);
+}
+
+.menu_button {
+    color: var(--zindex-4-color);
+    font-weight: bold;
+    line-height: 1.3em;
+    font-size: 21px;
+    width: 300px;
+
+    display: block;
+    text-align: center;
+
+    border-radius: 25px;
+
+    margin: 13px auto;
+    padding: 13px;
+}
+
+.menu_button:focus {
+    background-color: transparent;
+    box-shadow: inset 5px 5px 8px #c5c5c5, inset -5px -5px 8px #fbfbfb;
+}
+
+.menu_button_active {
+    box-shadow: inset 5px 5px 8px #c5c5c5, inset -5px -5px 8px #fbfbfb;
+}
+
+.menu_button_inactive {
+    box-shadow: 5px 5px 10px #cecece, -5px -5px 10px #f2f2f2;
+}
+
+/* Recent activites section */
+
+.recent_uploads_container {
+    flex-grow: 2;
+    flex-shrink: 1 0 auto;
+    flex-basis: 0;
+
+    min-width: 45%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    /* margin-top: 10px; */
+    border-right: 4px dashed var(--zindex-5-color);
+}
+
+.upload_activity {
+    font-weight: bold;
+    line-height: 1.3em;
+    font-size: 21px;
+
+    display: flex;
+
+    box-sizing: border-box;
+    border-radius: 25px;
+
+    margin: 13px 30px;
+    padding: 13px;
+    box-shadow: 5px 5px 10px #cecece, -5px -5px 10px #f2f2f2;
+}
+.upload_activity:hover {
+    box-shadow: inset 6px 6px 12px #b5b5b5, inset -6px -6px 12px #ffffff;
+}
+.upload_activity:hover .upload_activity_transfer {
+    box-shadow: none;
+}
+
+.upload_activity img {
+    height: 24px;
+    margin-top: 4px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.upload_activity button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    outline: 0;
+    outline: none;
+    border: none;
+    display: inline-block;
+    padding: 15px;
+
+    border-radius: 35%;
+    box-shadow: 5px 5px 10px #cecece, -5px -5px 10px #f2f2f2;
+}
+.upload_activity button:focus {
+    box-shadow: none;
+}
+
+.upload_activity_transfer {
+    flex: 1;
+
+    display: flex;
+
+    padding: 10px;
+
+    border-radius: 17px;
+    box-shadow: inset 5px 5px 8px #c5c5c5, inset -5px -5px 8px #fbfbfb;
+}
+
+.upload_activity_details {
+    font-family: "Poppins", sans-serif;
+    font-size: 17px;
+    font-weight: 100;
+    padding-top: 10px;
+
+    flex: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: auto auto;
+}
+
+/* Images selection section  */
+
+.selected_files_container {
+    flex: 1;
+
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: 4%;
+    margin-right: 4%;
+
+    border-radius: 17px;
+    box-shadow: inset 5px 5px 8px #c5c5c5, inset -5px -5px 8px #fbfbfb;
+}
+
+.selected_file {
+    flex: 1;
+
+    text-align: center;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    /* height: 200px; */
+    /* display: flex; */
+    margin: 20px;
+    padding-bottom: 20px;
+
+    border-radius: 17px;
+    border: 4px solid var(--zindex-2-color);
+    box-shadow: 5px 5px 10px #cecece;
+}
+
+.selected_file:hover {
+    border: 4px dashed var(--zindex-5-color);
+    box-shadow: none;
+}
+
+.selected_file img {
+    max-height: 200px;
+    height: auto;
+
+    margin-bottom: 10px;
+
+    border-radius: 17px 17px 0 0;
+}
+.selected_file button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    outline: 0;
+    outline: none;
+    border: none;
+    display: inline-block;
+
+    width: 50%;
+
+    padding: auto 10px;
+    margin-top: 15px;
+    /* margin-right: auto; */
+
+    border-radius: 20%;
+    box-shadow: 5px 5px 10px #cecece, -5px -5px 10px #f2f2f2;
+}
+.selected_file button:focus {
+    box-shadow: none;
+}
+.universal_button {
+    color: var(--zindex-1-color);
+    font-weight: bold;
+
+    background-color: var(--zindex-3-color);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    outline: 0;
+    outline: none;
+    border: none;
+    display: inline-block;
+    min-width: 100px;
+    width: 10%;
+
+    padding: 20px;
+    margin: 40px;
+
+    border-radius: 20px;
+    border: 4px solid var(--zindex-2-color);
+    box-shadow: 5px 5px 10px #cecece, -5px -5px 10px #f2f2f2;
+}
+.universal_button:hover {
+    border: 4px dashed var(--zindex-5-color);
+}
+.universal_button:focus {
+    box-shadow: none;
+    background-color: transparent;
+    box-shadow: inset 5px 5px 8px #c5c5c5, inset -5px -5px 8px #fbfbfb;
+}
+
+/* SETTINGS VIEW */
+
+.settings_list_container {
+    color: var(--zindex-4-color);
+
+    flex: 6;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    margin-left: 4%;
+    margin-right: 4%;
+    /* padding-bottom: 80px; */
+
+    border: 4px dashed var(--zindex-5-color);
+    border-radius: 20px;
+    /* box-shadow: 15px 15px 30px #bcbcbc, -15px -15px 30px #ffffff; */
+}
+
+.setting_option {
+    line-height: 1.3em;
+    font-size: 21px;
+    margin: 40px;
+    margin-bottom: 0px;
+}
+
+.setting_option .option {
+    color: var(--zindex-1-color);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.setting_option .value {
+    color: var(--zindex-5-color);
+    font-family:'Lucida Console', monospace;
+    font-size: 20px;
+}
+
+/* LOGIN FORM */
+
+.login {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+.login label {
+    text-align: left;
+    display: block;
+}
+.login input,
+.create textarea,
+.create select {
+    color: var(--zindex-5-color);
+    font-weight: bold;
+    margin: 40px;
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+}
+.login label {
+    color: var(--zindex-1-color);
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    /* font-size: 40px; */
+    line-height: 1.3em;
+    font-size: 21px;
+}
+.login input {
+    box-shadow: inset 5px 5px 8px #c5c5c5, inset -5px -5px 8px #fbfbfb;
+    background-color: transparent;
+    border-radius: 15px;
+    height: 45px;
+    font-size: 20px;
+    outline: none;
+    margin: 20px auto;
+}
+.login button a{
+    color: var(--zindex-1-color);
+    font-weight: bold;
 }
