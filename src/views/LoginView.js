@@ -19,15 +19,19 @@ function LoginView() {
             <Navbar />
             <div className="login">
                 <form id="login_form" onSubmit={handleSubmit}>
-                    <label>Enter your email: </label>
+                    <label htmlFor="email">Enter your email: </label>
                     <input
+                        id="email"
+                        name="email"
                         type="email"
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    <label>Enter your password: </label>
+                    <label htmlFor="password">Enter your password: </label>
                     <input
+                        id="password"
+                        name="password"
                         type="password"
                         required
                         value={password}
