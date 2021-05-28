@@ -16,9 +16,7 @@ function RegisterView() {
     const [surnameError, setSurnameError] = useState("");
 
 
-    const validateFormData = (data) => {
-
-        
+    const validateFormData = () => {
 
         let emailError = "";
         let passwordError = "";

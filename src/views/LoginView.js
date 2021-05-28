@@ -2,16 +2,29 @@ import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import Navbar from '../components/navbarContainer/Navbar';
+import { useDispatch, useSelector } from 'react-redux'
+import {userLogin} from '../redux/users'
+import { useHistory } from "react-router-dom";
+
+
+
 
 function LoginView() {
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const history = useHistory();
+
+
+    const userts = useSelector(state => state.users);
+    const dispatch = useDispatch();
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = { email, password };
-
-        console.log(data);
+        dispatch(userLogin({name: "New_user_name", email: data.email, surname: "New_user_surname"}))
+        history.push("/dashboard");
     }
 
     return (
@@ -40,6 +53,7 @@ function LoginView() {
                 </form>
                 <button className="universal_button" type="submit" form="login_form" value="Submit">
                     Login
+
                 </button>
                 <button className="universal_button" >
                     <Link to="/register" style={{ textDecoration: 'none' }}> Signup</Link>
